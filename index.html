@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vocabulary Matching Puzzle</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h2 { color: #333; }
+        .container { display: flex; justify-content: space-between; }
+        .list { width: 45%; }
+        select { width: 100%; padding: 5px; margin-bottom: 10px; }
+        button { padding: 10px 20px; font-size: 16px; }
+        #result { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>Vocabulary Matching Puzzle</h2>
+    <p>Match each vocabulary word to the correct scene or object from the image.</p>
+    <div class="container">
+        <div class="list">
+            <h3>Vocabulary Words</h3>
+            <form id="matchForm">
+                <label>Refrigerator:
+                    <select name="Refrigerator">
+                        <option value="">--Select--</option>
+                        <option value="Kitchen">Kitchen</option>
+                        <option value="Office desk">Office desk</option>
+                        <option value="Bathroom">Bathroom</option>
+                    </select>
+                </label><br>
+                <label>Piggy bank:
+                    <select name="Piggy bank">
+                        <option value="">--Select--</option>
+                        <option value="Person holding a piggy bank">Person holding a piggy bank</option>
+                        <option value="Living room">Living room</option>
+                        <option value="Dining room">Dining room</option>
+                    </select>
+                </label><br>
+                <label>Memo:
+                    <select name="Memo">
+                        <option value="">--Select--</option>
+                        <option value="Office desk">Office desk</option>
+                        <option value="Kitchen">Kitchen</option>
+                        <option value="Bathroom">Bathroom</option>
+                    </select>
+                </label><br>
+                <label>Eraser:
+                    <select name="Eraser">
+                        <option value="">--Select--</option>
+                        <option value="Yellow pencil">Yellow pencil</option>
+                        <option value="Office desk">Office desk</option>
+                        <option value="Red book">Red book</option>
+                    </select>
+                </label><br>
+                <label>Bookshelf:
+                    <select name="Bookshelf">
+                        <option value="">--Select--</option>
+                        <option value="Living room">Living room</option>
+                        <option value="Person reading">Person reading</option>
+                        <option value="Kitchen">Kitchen</option>
+                    </select>
+                </label><br>
+                <label>Dining table:
+                    <select name="Dining table">
+                        <option value="">--Select--</option>
+                        <option value="Dining room">Dining room</option>
+                        <option value="Kitchen">Kitchen</option>
+                        <option value="Living room">Living room</option>
+                    </select>
+                </label><br>
+                <label>Shower curtain:
+                    <select name="Shower curtain">
+                        <option value="">--Select--</option>
+                        <option value="Bathroom">Bathroom</option>
+                        <option value="Kitchen">Kitchen</option>
+                        <option value="Office desk">Office desk</option>
+                    </select>
+                </label><br>
+                <label>Keyboard:
+                    <select name="Keyboard">
+                        <option value="">--Select--</option>
+                        <option value="Office desk">Office desk</option>
+                        <option value="Living room">Living room</option>
+                        <option value="Kitchen">Kitchen</option>
+                    </select>
+                </label><br>
+                <label>Coffee table:
+                    <select name="Coffee table">
+                        <option value="">--Select--</option>
+                        <option value="Living room">Living room</option>
+                        <option value="Dining room">Dining room</option>
+                        <option value="Office desk">Office desk</option>
+                    </select>
+                </label><br>
+                <label>Oven:
+                    <select name="Oven">
+                        <option value="">--Select--</option>
+                        <option value="Kitchen">Kitchen</option>
+                        <option value="Bathroom">Bathroom</option>
+                        <option value="Living room">Living room</option>
+                    </select>
+                </label><br>
+                <button type="button" onclick="checkAnswers()">Submit</button>
+            </form>
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            const correctAnswers = {
+                "Refrigerator": "Kitchen",
+                "Piggy bank": "Person holding a piggy bank",
+                "Memo": "Office desk",
+                "Eraser": "Yellow pencil",
+                "Bookshelf": "Living room",
+                "Dining table": "Dining room",
+                "Shower curtain": "Bathroom",
+                "Keyboard": "Office desk",
+                "Coffee table": "Living room",
+                "Oven": "Kitchen"
+            };
+            let form = document.forms["matchForm"];
+            let score = 0;
+            for (let key in correctAnswers) {
+                if (form[key].value === correctAnswers[key]) {
+                    score++;
+                }
+            }
+            document.getElementById("result").innerText = `You matched ${score} out of 10 correctly!`;
+        }
+    </script>
+</body>
+</html>
